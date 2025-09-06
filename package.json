@@ -3,8 +3,7 @@
   "version": "1.110.0",
   "private": true,
   "engines": {
-    "node": ">=22.16",
-    "pnpm": ">=10.2.1"
+    "node": ">=22.16"
   },
   "packageManager": "npm@9.8.0",
   "scripts": {
@@ -22,8 +21,8 @@
     "dev:ai": "turbo run dev --parallel --env-mode=loose --filter=@n8n/nodes-langchain --filter=n8n --filter=n8n-core",
     "dev:fe": "run-p start \"dev:fe:editor --filter=@n8n/design-system\"",
     "dev:fe:editor": "turbo run dev --parallel --env-mode=loose --filter=n8n-editor-ui",
-    "dev:e2e": "cd cypress && pnpm run test:e2e:dev",
-    "debug:flaky:e2e": "cd cypress && pnpm run test:flaky",
+    "dev:e2e": "cd cypress && npm run test:e2e:dev",
+    "debug:flaky:e2e": "cd cypress && npm run test:flaky",
     "dev:e2e:server": "run-p start dev:fe:editor",
     "clean": "turbo run clean",
     "reset": "node scripts/ensure-zx.mjs && zx scripts/reset.mjs",
@@ -44,8 +43,8 @@
     "test": "JEST_JUNIT_CLASSNAME={filepath} turbo run test",
     "test:ci": "turbo run test --continue --concurrency=1",
     "test:affected": "turbo run test --affected --concurrency=1",
-    "test:with:docker": "pnpm --filter=n8n-playwright test:container:standard",
-    "test:show:report": "pnpm --filter=n8n-playwright exec playwright show-report",
+    "test:with:docker": "npm run --filter=n8n-playwright test:container:standard",
+    "test:show:report": "npm run --filter=n8n-playwright exec playwright show-report",
     "watch": "turbo run watch --concurrency=30",
     "webhook": "./packages/cli/bin/n8n webhook",
     "worker": "./packages/cli/bin/n8n worker"
@@ -81,4 +80,5 @@
     "turbo": "2.5.4",
     "typescript": "*",
     "zx": "^8.1.4"
+  }
 }
